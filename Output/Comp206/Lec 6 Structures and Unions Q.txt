@@ -1,0 +1,217 @@
+Q:
+Q: What things are needed to compile a C program?
+
+
+A: --> C compiler and source code files (e.g., .c files).
+
+Q:
+How can a Makefile be used?
+
+A: --> To automate the build process of a C program.
+
+
+Q:
+Which is the smallest size that  type could have?
+
+A: --> Depends on the type; for example, char is typically 1 byte.
+
+
+Q:
+How do you take an int from a user?
+
+A: --> Use scanf("%d", &(variable));
+
+
+Q:
+How do you take a string from a user?
+
+A: --> Use scanf("%s", string_variable);
+
+
+Q:
+Define a global variable that has some characteristics.
+
+A: --> struct PERSON {char name[30];}; struct PERSON p1; p1.name = "alice";
+
+
+Q:
+Can values be initialized in a structure?
+
+A: --> directly no, but values can be initialized in a structure when the structure is defined ex: struct {int age;} a; a.age=50;
+
+
+Q:
+How is this different from a dictionary in Python?
+
+A: --> a struct in C has fixed fields with defined types, while a dictionary in Python is more flexible and can have variable keys and values of different types.
+
+
+Q:
+How is this different from a class in Java?
+
+A: --> a struct does not support methods or encapsulation like a class in Java does, as it is purely a data structure.
+
+
+Q:
+Create a struct constructor simulation of OOP in C.
+
+A:
+typedef struct {
+    int x;
+    int y;
+} Point;
+
+Point create_point(int x, int y) {
+    Point p;
+    p.x = x;
+    p.y = y;
+    return p;
+}
+
+
+Q:
+What gets compiled first, is there anything that gets removed? #include, methods(), // Comments, #define, main()
+
+A:
+--> 1. Preprocess: From the source code (.c file) all comments are removed, header file's code is included and define statements are replaced by their values. Output is stored in a .i file.
+
+--> 2. Compiling: main is compiled and the compiler generates the IR code (Intermediate
+Representation) from the preprocessed file. Output is stored in a .s file
+
+--> 3. Assembly: The assembler takes the IR code and transforms it into object code, that is code in machine language (i.e. binary). Output: a object file ending in .o
+
+--> 4: Linking: The linker creates the final executable, in binary. It links object codes of all the source files together. The linker knows where to look for the function definitions in the static libraries or the dynamic libraries.
+
+
+
+Q:
+How does #define work?
+
+A: --> It defines a macro that replaces occurrences of a specific identifier with a value or code snippet during preprocessing.
+
+
+Q:
+What does Enum do?
+
+A: --> Enums allow for naming integer constants, improving code readability.
+
+
+Q:
+Provide an example of an Enum, numbering object types from a structure, then assigning each a tag
+
+A:
+typedef enum { Dog = 0, Cat = 1, Bird = 2 } AnimalType;
+AnimalType tag;
+
+
+Q:
+How do you return arrays using struct?
+
+A: --> Encapsulate the array in a struct, then return the pointer to the memory address of the array.
+
+
+Q:
+How to avoid having to always type struct before usage of that structure?
+
+A: --> Use typedef to create an alias for the struct type.
+
+
+Q:
+How to simulate inheritance and subclasses in C?
+
+A: --> Use struct composition, where one struct contains another struct to represent "is-a" relationships, along with function pointers for behavior.
+
+
+Q:
+Using struct PERSON { char name[30]; int age; float salary; } a; create a person using stdin.
+
+A:
+--> printf("Enter name: ");
+--> scanf("%s", a.name);
+
+--> printf("Enter age: ");
+--> scanf("%d", &(a.age));
+
+--> printf("Enter salary: ");
+--> scanf("%f", &(a.salary));
+
+
+Q:
+What is the difference between char* a; char a[]; char* a[]; char *a, struct a, union a ?
+
+A:
+--> char* a; is a pointer to a union
+--> char a[]; is a array of characters
+--> char* a[]; is an array of pointers to characters
+--> char *a; The same as the first.
+--> struct a; structure called 'a'
+--> union a; union called 'a'
+
+
+
+Q:
+How would you copy values from struct a to values for struct b?
+
+#include <stdio.h>
+struct COORDINATE {
+        int x;
+        int y;
+};
+int main(void) {
+        struct COORDINATE a, b;
+        a.x = 5;
+        a.y = 7;
+
+
+
+A: --> b = a;
+--> printf("The coordinate of b is (%d, %d)\n", b.x, b.y);
+
+
+
+Q:
+Create a function that prints each value in a structure
+
+A: --> void print_name(struct NAME n) {printf("%s %s\n", n.first, n.last);}
+
+
+Q:
+How would you make an array of stuctures?
+
+A: --> struct PERSON people[100];
+
+
+Q:
+If a bank has a checking account and a savings account. How might we build a struct and union data structure to represent this information?
+
+A:
+struct ACCOUNT {
+        char type; // 's' = savings, 'c' = checking
+        char name[30];
+        int age;
+        char SIN[9];
+
+        union PERSON {
+                struc{unsigned long int account_number; float balance; float Deposit_award;} checking;
+                struc{unsigned long int account_number; float balance; float Deposit_award;} savings;
+        } specific;
+};
+
+Q:
+Implement a dynamic array in C.
+
+A: --> Use stuct
+
+struct DynaArray {
+        char *buffer;
+        int length;
+        int capacity
+}da1;
+
+
+
+
+Q:
+End of Lec 6
+A:
+bye!                                                                                                                                               

@@ -1,0 +1,118 @@
+Q:
+----- Part I----- 
+
+A:
+Virtualization 
+
+Q:
+What is virtual memory?
+
+A:
+Virtual memory allows processes to access memory through virtual addresses, with the OS managing the translation into physical addresses and offloading data from RAM to disk as needed.
+
+Q:
+What is the key idea of virtualization?
+
+A:
+Virtualization involves "faking" it, where virtual systems simulate real hardware or software environments, allowing one machine to behave like another.
+
+Q:
+Order these in terms of descending levels virtualization (high virtualization on top)?
+Code executing, containers, virtual machines, Interpreted programming languages, Emulators
+
+A:
+Full Virtualization
+1. Emulator
+2. Virtual Machine (VM)
+3. Container
+4. Interpreted programming languages
+5. Native code execution
+Very little Virtualization
+
+Q:
+----- Part II -----
+
+A:
+Emulators
+
+Q:
+What is an emulator?
+
+A:
+An emulator simulates the complete hardware of another machine, including its CPU, and is often used for running old software on modern systems, although it is slower due to CPU simulation.
+
+Q:
+What are virtual machines (VMs)?
+
+A:
+VMs simulate all hardware except the CPU, running machine code directly on the physical CPU. VMs provide high isolation and can run different OSes.
+
+Q:
+What is a hypervisor in the context of virtual machines?
+
+A:
+A hypervisor is software that runs and manages virtual machines. 
+
+Q:
+What is the difference between Type 1 and Type 2 hypervisors?
+
+A:
+Type 1 hypervisors run directly on hardware and are used in servers. Type 2 hypervisors run as applications on a host OS and are often used by developers for testing different OSes.
+
+Q:
+How do modern VMs ensure isolation between guest OSes?
+
+A:
+VMs rely on CPU-level support and special modes configured by the hypervisor to prevent one guest OS from accessing another's data, maintaining strong isolation.
+
+Q:
+----- Part III -----
+
+A:
+Containers
+
+Q:
+What are containers?
+
+A:
+Containers share the host OS kernel with the guest, providing isolation at the process level. They offer better performance than VMs but with less security and isolation.
+
+Q:
+What are the differences between VMs and containers?
+
+A:
+VMs are heavyweight, with full OS running in each, slow to start, and provide strong isolation. Containers are lightweight, share the OS kernel, start faster, but have weaker isolation.
+
+Q:
+What are interpreted programming languages?
+
+A:
+Interpreted languages, like Python or Java, run on any system with an interpreter. They are often compiled into platform-independent bytecode, which the interpreter executes.
+
+Q:
+What is Just-In-Time (JIT) compilation?
+
+A:
+JIT compilation improves performance by first interpreting code and then compiling frequently used functions into native machine code for better execution speed.
+
+Q:
+Which languages use JIT compiliation
+A:
+Java, C#, JavaScript
+
+Q:
+What is native code execution?
+
+A:
+Native code execution involves compiling source code directly into machine code, which the CPU executes. This process is typically faster but requires the program to be tailored to the specific hardware.
+
+Q: Which languages use Native code execution?
+
+A:
+--> C
+
+Q:
+--- THE END ----
+
+A:
+Bye!
