@@ -1,0 +1,87 @@
+Q:
+----- Part I -----
+
+A:
+Offensive Security
+
+Q:
+What is an injection attack?
+
+A:
+An injection attack occurs when user-controlled input is used (unwittingly) to construct a program that executes on another machine, allowing a malicious user to perform unauthorized actions, such as accessing sensitive data.
+
+Q:
+What is a prompt injection attack?
+
+A:
+A prompt injection attack occurs when a malicious user manipulates the input to a language model (like an LLM) to perform actions it normally wouldn't.
+
+Q:
+What is the traditional example of an injection attack? Give an example:
+
+A:
+-User input is naively used to form commands for another program. 
+-SQL injection, where a malicious user manipulates a query to retrieve or modify data inappropriately.
+
+Q:
+Give an example of SQL injection.
+
+A:
+A malicious input like `john"; DROP TABLE Students;--` could turn a query into one that retrieves a student's GPA but also deletes the entire "Students" table, causing data loss.
+
+Q:
+----- Part II -----
+
+A:
+Buffer Overflow Attacks
+
+Q:
+What is a buffer overflow vulnerability?
+
+A:
+A buffer overflow vulnerability occurs when a program writes data outside the bounds of a buffer, potentially allowing an attacker to overwrite critical data and control the program's execution.
+
+Q:
+What specific data on the stack is dangerous to overwrite in a buffer overflow attack?
+
+A:
+Overwriting return addresses or function pointers is especially dangerous in a buffer overflow attack, as this enables the attacker to control the flow of execution.
+
+Q:
+What is shellcode in the context of buffer overflow attacks?
+
+A:
+Shellcode is a small piece of code used to exploit buffer overflow vulnerabilities, typically to gain control of a system or execute malicious code.
+
+Q:
+Why is a nop-sled included before shellcode?
+
+A:
+A nop-sled is a sequence of no-operation instructions that help ensure the execution flow lands on the shellcode, even if the exact memory location is uncertain.
+
+Q:
+What are two strategies to mitigate buffer overflow attacks?
+
+A:
+Two strategies include:
+1. Stack canaries: special values placed on the stack to detect and prevent overflow.
+2. Data Execution Prevention (DEP): prevents execution of code from certain areas of memory.
+
+Q:
+What is ROP?
+A:
+Return oriented programming
+
+Q:
+What is a "ROP gadget"?
+
+A:
+- A ROP gadget is a small sequence of instructions that can be chained together in a return-oriented programming attack to perform malicious actions.
+- It exploits existing code in the system to bypass security measures like DEP.
+
+Q:
+What strategy is defeated by return-oriented programming (ROP)?
+
+A:
+Return-oriented programming defeats the Data Execution Prevention (DEP) strategy by using existing executable code snippets (ROP gadgets) to perform an attack.
+

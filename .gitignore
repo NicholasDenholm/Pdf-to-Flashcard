@@ -4,5 +4,5 @@
 
 # Python testing files 
 *.py
-
+commit.sh
 *.json
