@@ -1,0 +1,313 @@
+Q:
+Lec 2: Data and Control Structures in C
+
+A:
+__________________________________________
+Part 1
+
+Variables
+
+Q:
+List the 4 basic types
+
+A:
+
+--> char
+--> int
+--> float
+--> double
+
+Q:
+What are the size of the 4 basic types
+
+--> char : 4 bytes
+--> int : 8 bytes
+--> float : 32 bytes
+--> double : 2x float : 64 bytes
+--> void : means no type
+
+Q:
+What is the difference between floats and doubles?
+
+A:
+
+--> floats have 6 digit precision and range is from: (1.18·10^-38 to 3.40·10^38)
+--> double have double the size of the float, the range is (2.23·10^-308 to 1.80·10^308) with 15 digits of precision.
+
+
+Q:
+Implement a bool type using int in C
+
+A:
+--> Use typedef int bool;
+
+typedef int bool;
+const int true = 1;
+const int false = 0;
+bool isValid = false;
+
+Q:
+What is the difference between a signed int and a long int?
+
+A:
+
+--> a signed int has a min bit size of 16 with a range of -32,768 - 32,767, and a long has 32 bits with a range of -2,147,483,648 - 2,147,483,648.
+
+
+Q:
+How does bit size change with modifiers unsigned , short, long, long long?
+
+A:
+
+--> unsigned is only Natural numbers, signed numbers can be -ve as well.
+
+
+Q:
+How do you make the terminal produce a noise and flash?
+
+A:
+
+--> you put \a as a escape character
+
+
+Q:
+What is the range of a unsigned char?
+
+A:
+
+--> 0 to 255
+
+Q:
+How do you get the size of a type?
+
+A:
+
+--> sizeof(int), sizeof(char), etc.
+
+Q:
+How do compiliers follow type sizes?
+
+A:
+
+--> They follow minimum size requirments.
+--> On a 16-bit machine, short is typically 16 bits, int is 16 bits,
+and long is 32 bits
+--> On a 64-bit machine, short is typically 16 bits, int is 32 bits,
+and long is 64 bits (mimi is 64 bits)
+
+Q:
+What are the 4 derived data types?
+
+A:
+
+--> Arrays
+--> Structures
+--> Pointers
+--> Unions
+
+Q:
+Describe the 4 derived data types.
+
+A:
+
+--> Arrays: Combine items with the same type
+--> Structures: Combine items with different types
+--> Pointer: Address to an object in memory
+--> Unions: Combine items with different types but holding only one value at a time.
+
+
+Q:
+How can you represent a str in C?
+
+A:
+
+--> They are either char* : char pointer to a char type, or char[] : array of characters.
+
+Q:
+How to ensure that variables once initialized cannot be changed?
+
+A:
+
+
+--> use the 'const' declariations
+ex: int const A = 1;
+
+Q:
+How to make a custom type?
+
+A:
+
+--> use typedef
+ex:
+
+typedef int scale;
+int main() {
+        scale a;
+        a = 10;
+        printf("%s\n", a);
+}
+
+Q:
+Convert this statement into code: if A smaller than B or C mod B equals 0 and not C equal to A.
+        increment A
+        Decrement B
+        Divide C by B
+        Multiply A by C
+
+
+A:
+
+if (A < B || (C % B == 0 && !(C == A))) {
+        // Condition is true
+        A =+;
+        B =-;
+        C /= B;
+        A *= C;
+}
+
+
+Q:
+How would you write True and false conditional expressions?
+
+A:
+
+--> (CONDITION) ? TRUE_EXPRESSION : FALSE_EXPRESSION;
+ex: z = (y < 10) ? x++ : x--; // assume x = 5 and y = 2
+
+
+
+Q:
+What does x equal to in these examples?
+
+// assume x = 5 and y = 2
+x = x + y++;
+x = x + ++y;
+
+A:
+
+--> x=7 , y=3
+--> x=8 , y=3
+
+Q:
+Does this do anything? if (5) puts("hello");
+
+A:
+
+--> yes, any non 0 value is considered true, so it will print hello
+
+
+Q:
+How do you increment a char? ex: go from A - D?
+
+A:
+
+char x = 'A';
+char x + 3;
+// char are ints as well
+
+Q:
+How do you link a library using the compilier?
+
+A:
+
+--> gcc -l
+-lm : link math
+
+Q:
+_____________________________________________________
+Part 2: C Control Structures
+
+A:
+
+Q:
+How do you write a if else statment in C? Give examples for single condition and multiple conditions
+
+A:
+// if (CONDITION) SINGLE_STATEMENT; else SINGLE_STATEMENT;
+
+if (x < 10) puts("X is less than 10\n");
+else puts("X is greater than 10\n");
+
+or for multiple statments:
+
+// if (CONDITION) { MULTIPLE_STATEMENTS; }
+// else {MULTIPLE_STATEMENTS;}
+
+if (x < 10) {
+        puts("X is less than 10\n");
+        c = getc(stdin);
+} else {
+        puts("X is greater than 10\n");
+}
+
+
+Q:
+How could you use the switch variable to do differing functions based off of arguments A,B,C?
+
+A:
+
+switch(argv[0]){
+        case A: //DO_THIS
+                break;
+        case B: //DO_THIS
+                break;
+        case C: //DO_THIS
+                break;
+        default:
+                //DO_THIS
+}
+
+Q:
+Implement a yes no input from a user. How would you handle upper and lower cases?
+
+A:
+
+char = inp
+do {
+        puts("Do you wish to continue Y / N ");
+        inp = getc(stdin);
+} while (inp != 'Y' || inp != 'N');
+
+switch(inp){
+        case Y:
+                puts("Yes selected");
+                break;
+        case N:
+                puts("No selected");
+                break;
+        default:
+                puts("Error");
+                break
+}
+
+Q:
+What does this output?
+
+int x;
+for(x=0; x<10; x++) puts("Hi!");
+
+A:
+
+--> Hi 10 times
+
+Q:
+What does this output?
+
+int x, y;
+char c;
+for(x=0, y=10, c=' '; x<10 && c != 'x'; x+=2, y--) {
+        puts("Hi");
+        c = getc(stdin);
+}
+
+A:
+
+--> The user has 5 attempts at guessing the value of x, if incorrect this prints Hi.
+
+
+
+Q:
+End of Lec 2
+A:
+bye!
+~                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               ~                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               ~                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               ~                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               ~                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               ~                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               ~                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           
