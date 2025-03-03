@@ -1,0 +1,8 @@
+# Folders
+./Output
+./.vscode
+
+# Python testing files 
+*.py
+
+*.json
